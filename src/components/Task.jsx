@@ -35,12 +35,12 @@ const Task = (props) => {
       <button
         className="item__button"
         onClick={() => {
-          props.onDeleteTask(props.item.id)
+          props.onDeleteTask(props.item.id);
         }}>
         Delete
       </button>
     </li>
   );
-}
+};
 
 export default Task;

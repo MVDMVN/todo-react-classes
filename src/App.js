@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import uuid from "react-uuid";
-import "./App.scss";
-import Tasks from "./components/Tasks";
-import TextInput from "./components/TextInput";
+import React, { useState } from 'react';
+import uuid from 'react-uuid';
+import './App.scss';
+import Tasks from './components/Tasks';
+import TextInput from './components/TextInput';
 
 function App() {
-  const [itemTodoText, setItemTodoText] = useState("");
-  const [todoItems, setTodoItems] = useLocalState("todoList");
+  const [itemTodoText, setItemTodoText] = useState('');
+  const [todoItems, setTodoItems] = useLocalState('todoList');
 
   function useLocalState(localItem) {
     const [loc, setState] = useState(
-      JSON.parse(localStorage.getItem(localItem) || "[]")
+      JSON.parse(localStorage.getItem(localItem) || '[]'),
     );
     function setLoc(newItem) {
       localStorage.setItem(localItem, JSON.stringify(newItem));
@@ -45,7 +45,6 @@ function App() {
   };
 
   const onEditToggle = (id) => {
-
     todoItems.forEach((item) => {
       if (item.id === id) {
         item.isEditable = !item.isEditable;
@@ -56,7 +55,6 @@ function App() {
   };
 
   const onEditTask = (id) => (text) => {
-    console.log("OnEditTask")
     todoItems.forEach((item) => {
       if (item.id === id) {
         item.text = text;
@@ -77,7 +75,7 @@ function App() {
       />
       <div className="todo-out">
         <p className="todo-out__title">
-          {todoItems.length > 0 ? "Tasks:" : "You have no tasks"}
+          {todoItems.length > 0 ? 'Tasks:' : 'You have no tasks'}
         </p>
         <Tasks
           todoItems={todoItems}
